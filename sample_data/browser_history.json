@@ -1,0 +1,5 @@
+[
+  {"url": "https://github.com", "time_spent": 300, "category": "Work"},
+  {"url": "https://youtube.com", "time_spent": 1800, "category": "Entertainment"},
+  {"url": "https://leetcode.com", "time_spent": 600, "category": "Work"}
+]
