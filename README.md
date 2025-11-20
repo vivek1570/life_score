@@ -1,2 +1,4 @@
 # life_score
-hello three
+
+hello one
+hello two
