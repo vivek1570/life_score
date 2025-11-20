@@ -2,6 +2,17 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
+import sys
+import os
+
+# Add project root to Python path
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+print(ROOT_DIR)
+second_root=os.path.dirname(os.path.abspath(__file__))
+print(second_root)
+sys.path.append(ROOT_DIR)
+
+
 from etl.load_data import *
 from etl.metrics import *
 from etl.insights import *
@@ -9,9 +20,16 @@ from etl.insights import *
 st.title("📊 Life Score – Weekly Wellness Dashboard")
 
 # Upload files
-browser_file = st.file_uploader("Upload Browser History JSON")
-app_file = st.file_uploader("Upload App Usage CSV")
-sleep_file = st.file_uploader("Upload Sleep/Steps CSV")
+# browser_file = st.file_uploader("Upload Browser History JSON")
+# app_file = st.file_uploader("Upload App Usage CSV")
+# sleep_file = st.file_uploader("Upload Sleep/Steps CSV")
+
+DATA_DIR=os.path.join(ROOT_DIR,"sample_data")
+
+browser_file=os.path.join(DATA_DIR,"browser_history.json")
+app_file=os.path.join(DATA_DIR,"app_usage.csv")
+sleep_file=os.path.join(DATA_DIR,"sleep_steps.csv")
+
 
 if browser_file and app_file and sleep_file:
     browser_df = pd.read_json(browser_file)
